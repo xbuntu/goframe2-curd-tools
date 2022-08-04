@@ -1,0 +1,59 @@
+package router
+
+import (
+	"gblog/internal/app/#APP_NAME#/model"
+	"github.com/gogf/gf/v2/frame/g"
+)
+
+// #VAR_NAME#AddReq 添加参数
+type #VAR_NAME#AddReq struct {
+	g.Meta `path:"/#ROUTE_NAME#/add" method:"post" tags:"#VAR_NAME#" summary:"添加"`
+	Title  string `json:"title" v:"required#请输入标题" dc:"标题"`
+}
+
+// #VAR_NAME#AddRes 返回参数
+type #VAR_NAME#AddRes struct{}
+
+// #VAR_NAME#DelReq 删除参数
+type #VAR_NAME#DelReq struct {
+	g.Meta `path:"/#ROUTE_NAME#/del" method:"post" tags:"#VAR_NAME#" summary:"删除"`
+	Ids    string `json:"ids" v:"required#请选择要删除的#VAR_NAME#" dc:"IDs"`
+}
+
+// #VAR_NAME#DelRes 返回参数
+type #VAR_NAME#DelRes struct{}
+
+// #VAR_NAME#UpdateReq 修改参数
+type #VAR_NAME#UpdateReq struct {
+	g.Meta `path:"/#ROUTE_NAME#/update" method:"post" tags:"#VAR_NAME#" summary:"修改"`
+	Id     int `json:"id" v:"required#请选择要修改的#VAR_NAME#" dc:"ID"`
+	*#VAR_NAME#AddReq
+}
+
+// #VAR_NAME#UpdateRes 返回参数
+type #VAR_NAME#UpdateRes struct{}
+
+// #VAR_NAME#ListReq 列表
+type #VAR_NAME#ListReq struct {
+	g.Meta `path:"/#ROUTE_NAME#/list" method:"post" tags:"#VAR_NAME#" summary:"列表"`
+	Page   int    `json:"page" dc:"当前页码"`
+	Limit  int    `json:"limit" dc:"每页加载条数"`
+	Title  string `json:"title" dc:"标题"`
+}
+
+// #VAR_NAME#ListRes 返回参数
+type #VAR_NAME#ListRes struct {
+	List  []*model.#VAR_NAME#ListItem `json:"list" dc:"列表"`
+	Count int                       `json:"count" dc:"记录总数"`
+}
+
+// #VAR_NAME#DetailReq 详情参数
+type #VAR_NAME#DetailReq struct {
+	g.Meta `path:"/#ROUTE_NAME#/detail" method:"get" tags:"#VAR_NAME#" summary:"详情"`
+	Id     int `json:"id" v:"required#请选择要查看的#VAR_NAME#" dc:"#VAR_NAME#ID"`
+}
+
+// #VAR_NAME#DetailRes 返回参数
+type #VAR_NAME#DetailRes struct {
+	*model.#VAR_NAME#Detail
+}

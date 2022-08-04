@@ -1,0 +1,34 @@
+package model
+
+import "github.com/gogf/gf/v2/os/gtime"
+
+// #VAR_NAME#ListItem 列表中的每一项
+type #VAR_NAME#ListItem struct {
+	Id     int    `json:"id" v:"required#请选择要修改的分类" dc:"分类ID"`
+	Title  string `json:"title" v:"required#请输入标题" dc:"标题"`
+}
+
+// #VAR_NAME#Detail 列表中的每一项
+type #VAR_NAME#Detail struct {
+	Id         int         `json:"id" v:"required#请选择要修改的分类" dc:"分类ID"`
+	Title      string      `json:"title" v:"required#请输入标题" dc:"标题"`
+	CreateTime *gtime.Time `json:"created_time" dc:"创建时间"`
+}
+
+// #VAR_NAME#ListInput 查询列表参数
+type #VAR_NAME#ListInput struct {
+	Page  int    `json:"page" dc:"当前页码"`
+	Limit int    `json:"limit" dc:"每页加载条数"`
+	Title string `json:"title" dc:"分类标题"`
+}
+
+// #VAR_NAME#AddInput 添加参数
+type #VAR_NAME#AddInput struct {
+	Title  string `json:"title" v:"required#请输入标题" dc:"标题"`
+}
+
+// #VAR_NAME#UpdateInput 修改参数
+type #VAR_NAME#UpdateInput struct {
+	Id int `json:"id" v:"required#请选择要修改的#VAR_NAME#" dc:"ID"`
+	*#VAR_NAME#AddInput
+}

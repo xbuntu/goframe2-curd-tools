@@ -1,0 +1,77 @@
+package controller
+
+import (
+	"context"
+	v1 "#MOUDLE_NAME#/api/v1"
+	"#MOUDLE_NAME#/internal/model"
+	"#MOUDLE_NAME#/internal/service"
+	"github.com/gogf/gf/v2/errors/gcode"
+	"github.com/gogf/gf/v2/errors/gerror"
+	"github.com/gogf/gf/v2/frame/g"
+)
+
+var (
+	#VAR_NAME# = c#VAR_NAME#{}
+)
+
+type c#VAR_NAME# struct{}
+
+// Add 添加
+func (c *c#VAR_NAME#) Add(ctx context.Context, req *v1.#VAR_NAME#AddReq) (res *v1.#VAR_NAME#AddRes, err error) {
+	insertId := service.#VAR_NAME#().Add(ctx, &model.#VAR_NAME#AddInput{
+		Title:  req.Title,
+	})
+	if g.IsEmpty(insertId) {
+		return nil, gerror.NewCode(gcode.CodeOperationFailed, "添加失败")
+	}
+	return nil, gerror.NewCode(gcode.CodeOK, "添加成功")
+}
+
+// Del 删除
+func (c *c#VAR_NAME#) Del(ctx context.Context, req *v1.#VAR_NAME#DelReq) (res *v1.#VAR_NAME#DelRes, err error) {
+	status := service.#VAR_NAME#().Del(ctx, req.Ids)
+	if !status {
+		return nil, gerror.NewCode(gcode.CodeOperationFailed, "删除失败")
+	}
+	return nil, gerror.NewCode(gcode.CodeOK, "删除成功")
+}
+
+// Update 修改
+func (c *c#VAR_NAME#) Update(ctx context.Context, req *v1.#VAR_NAME#UpdateReq) (res *v1.#VAR_NAME#UpdateRes, err error) {
+	update := service.#VAR_NAME#().Update(ctx, &model.#VAR_NAME#UpdateInput{
+		Id: req.Id,
+		#VAR_NAME#AddInput: &model.#VAR_NAME#AddInput{
+			Title:  req.Title,
+		},
+	})
+	if !update {
+		return nil, gerror.NewCode(gcode.CodeOperationFailed, "修改失败")
+	}
+	return nil, gerror.NewCode(gcode.CodeOK, "修改成功")
+}
+
+// List 列表
+func (c *c#VAR_NAME#) List(ctx context.Context, req *v1.#VAR_NAME#ListReq) (res *v1.#VAR_NAME#ListRes, err error) {
+	list, count := service.#VAR_NAME#().List(ctx, &model.#VAR_NAME#ListInput{
+		Page:  req.Page,
+		Limit: req.Limit,
+		Title: req.Title,
+	})
+	res = &v1.#VAR_NAME#ListRes{
+		List:  list,
+		Count: count,
+	}
+	return
+}
+
+// Detail 修改
+func (c *c#VAR_NAME#) Detail(ctx context.Context, req *v1.#VAR_NAME#DetailReq) (res *v1.#VAR_NAME#DetailRes, err error) {
+	info := service.#VAR_NAME#().Detail(ctx, req.Id)
+	if g.IsEmpty(info) {
+		return nil, gerror.NewCode(gcode.CodeNil, "#VAR_NAME#不存在")
+	}
+	res = &v1.#VAR_NAME#DetailRes{
+		#VAR_NAME#Detail: info,
+	}
+	return
+}

@@ -1,0 +1,109 @@
+package service
+
+import (
+	"context"
+	//"#MOUDLE_NAME#/internal/dao"
+	"#MOUDLE_NAME#/internal/app/#APP_NAME#/model"
+	//"#MOUDLE_NAME#/internal/model/do"
+	//"github.com/gogf/gf/v2/frame/g"
+	//"github.com/gogf/gf/v2/text/gstr"
+	//"time"
+)
+
+type s#VAR_NAME# struct{}
+
+var ins#VAR_NAME# *s#VAR_NAME#
+
+func #VAR_NAME#() *s#VAR_NAME# {
+	if ins#VAR_NAME# == nil {
+		ins#VAR_NAME# = &s#VAR_NAME#{}
+	}
+	return ins#VAR_NAME#
+}
+
+// Add 添加
+func (s *s#VAR_NAME#) Add(ctx context.Context, in *model.#VAR_NAME#AddInput) (insertId int64) {
+	/*
+        insert, err := dao.#VAR_NAME#.Ctx(ctx).Insert(&do.#VAR_NAME#{
+            Title:      gstr.Trim(in.Title),
+            CreateTime: time.Now().Unix(),
+        })
+        if err != nil {
+            return 0
+        }
+        id, err := insert.LastInsertId()
+        if err != nil {
+            return 0
+        }
+        return id
+	*/
+	return 0
+}
+
+// Del 删除
+func (s *s#VAR_NAME#) Del(ctx context.Context, ids string) bool {
+	/*
+	    result, err := dao.#VAR_NAME#.Ctx(ctx).WhereIn(dao.#VAR_NAME#.Columns().Id, ids).Delete()
+    	if err != nil {
+    		return false
+    	}
+    	affected, err := result.RowsAffected()
+    	if err != nil {
+    		return false
+    	}
+    	return affected > 0
+	*/
+	return true
+}
+
+// Update 添加
+func (s *s#VAR_NAME#) Update(ctx context.Context, in *model.#VAR_NAME#UpdateInput) bool {
+	/*
+	    affected, err := dao.#VAR_NAME#.Ctx(ctx).Where(do.#VAR_NAME#{
+    		Id: in.Id,
+    	}).UpdateAndGetAffected(do.#VAR_NAME#{
+    		Title:      gstr.Trim(in.Title),
+    		UpdateTime: time.Now().Unix(),
+    	})
+    	if err != nil {
+    		return false
+    	}
+    	return affected > 0
+	*/
+	return true
+}
+
+// List 列表
+func (s *s#VAR_NAME#) List(ctx context.Context, in *model.#VAR_NAME#ListInput) (list []*model.#VAR_NAME#ListItem, count int) {
+	/*
+	    c := dao.#VAR_NAME#.Columns()
+    	m := dao.#VAR_NAME#.Ctx(ctx)
+    	if !g.IsEmpty(in.Title) {
+    		m = m.WhereLike(c.Title, `%`+in.Title+`%`)
+    	}
+    	err := m.Page(in.Page, in.Limit).Order(c.Id, "DESC").Scan(&list)
+    	if err != nil {
+    		return nil, 0
+    	}
+    	count, err = m.Count()
+    	if err != nil {
+    		return nil, 0
+    	}
+    	return
+	*/
+	return nil,0
+}
+
+// Detail 详情
+func (s *s#VAR_NAME#) Detail(ctx context.Context, id int) (info *model.#VAR_NAME#Detail) {
+	/*
+	    err := dao.#VAR_NAME#.Ctx(ctx).Where(do.#VAR_NAME#{
+    		Id: id,
+    	}).Scan(&info)
+    	if err != nil {
+    		return nil
+    	}
+    	return
+	*/
+	return nil
+}
