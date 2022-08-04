@@ -1,7 +1,7 @@
 package steps_multi
 
 import (
-	"curltools/utility/steps_multi/internal"
+	"curdtools/utility/steps_multi/internal"
 	"github.com/gogf/gf/v2/text/gstr"
 	"testing"
 )
@@ -11,10 +11,10 @@ func TestStep(t *testing.T) {
 	//根据数据表构建，多应用CURD
 	fileNames := gstr.Split("article", ",")
 	for _, fileName := range fileNames {
-		//admin应用  curltools替换自己项目的模块名，isDelStep为true，则删除已生成的文件
-		internal.StartStep(fileName, "curltools","admin", false)
+		//admin应用  curdtools替换自己项目的模块名，isDelStep为true，则删除已生成的文件
+		internal.StartStep(fileName, "curdtools", "admin", false)
 		//api应用
-		internal.StartStep(fileName, "curltools","api", false)
+		internal.StartStep(fileName, "curdtools", "api", false)
 	}
 
 }

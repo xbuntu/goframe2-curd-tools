@@ -1,4 +1,4 @@
-module curltools
+module curdtools
 
 go 1.17
 

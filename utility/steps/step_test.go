@@ -1,7 +1,7 @@
 package steps
 
 import (
-	"curltools/utility/steps/internal"
+	"curdtools/utility/steps/internal"
 	"testing"
 )
 
@@ -12,8 +12,8 @@ func TestStep(t *testing.T) {
 		"article",
 	}
 	for _, fileName := range fileNames {
-		//curltools替换自己项目的模块名，isDelStep为true，则删除已生成的文件
-		internal.StartStep(fileName, "curltools", false)
+		//curdtools替换自己项目的模块名，isDelStep为true，则删除已生成的文件
+		internal.StartStep(fileName, "curdtools", false)
 	}
 
 }
