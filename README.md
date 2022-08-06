@@ -7,9 +7,9 @@
 1. 将 utility 目录下的 steps 和 steps_multi 目录，拷贝到自己的goframe2项目下的utility目录中
 2. 将 utility/steps/step_test.go 和 utility/steps_multi/step_test.go 文件中的 "curdtools" 替换成自己的模块名
 3. 【单应用】执行 utility/steps/step_test.go 中的 TestStep 方法，生成的文件和目录结构如下
-![](./img/1.png) 
+![](img/1.png) 
 4. 【多应用】执行 utility/steps_multi/step_test.go 中的 TestStep 方法，生成的文件和目录结构如下
-![](./img/2.png)
+![](img/2.png)
 
 #### 使用说明
 
